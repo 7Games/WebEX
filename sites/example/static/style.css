@@ -1,0 +1,37 @@
+html {
+    background: #0F172A;
+    color: #F1F5F9;
+}
+
+body {
+    padding: 1em;
+    max-width: 700px;
+}
+
+hr {
+    margin-top: 15px;
+}
+
+footer > p {
+    color: gray;
+    font-size: 0.8em;
+    padding: 0;
+    margin: 5px 0;
+}
+
+a {
+    color: skyblue;
+}
+
+.code, .inline-code {
+    font-family: 'monospace';
+    font-size: 1em;
+    background: black;
+    padding: 5px;
+    /* display: inline-block; */ /* Makes size of the content and not full page */
+    white-space: pre-wrap;
+}
+
+img {
+    max-width: 400px;
+}
