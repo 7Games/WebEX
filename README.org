@@ -27,6 +27,7 @@ WebEX is a system that let's you define page elements and exports them to user-d
 * Current language support
 
  * HTML
+ * RSS (exports only to one file)
 
 More will be added in future as I need them
 
