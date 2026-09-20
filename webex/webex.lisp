@@ -305,6 +305,28 @@
 (defmacro add-indentation (&optional (offset 0))
   `(progn (make-string (+ indentation ,offset) :initial-element #\Space)))
 
+(defconstant *day-names*
+  '("Monday" "Tuesday" "Wednesday"
+    "Thursday" "Friday" "Saturday"
+    "Sunday"))
+
+(defconstant *day-names-short*
+  '("Mon" "Tue" "Wed"
+    "Thu" "Fri" "Sat"
+    "Sun"))
+
+(defconstant *month-names*
+  '("January" "February" "March"
+    "April" "May" "June" "July"
+    "August" "September" "October"
+    "November" "December"))
+
+(defconstant *month-names-short*
+  '("Jan" "Feb" "Mar"
+    "Apr" "May" "Jun"
+    "Jul" "Aug" "Sep"
+    "Oct" "Nov" "Dec"))
+
 ;; Modified from https://lispcookbook.github.io/cl-cookbook/dates_and_times.html
 (defun get-timestamp ()
   (multiple-value-bind
@@ -317,6 +339,21 @@
             hour
             minute
             second)))
+
+;; Modified from https://lispcookbook.github.io/cl-cookbook/dates_and_times.html (uses RFC822)
+(defun get-timestamp-RFC822 ()
+  (multiple-value-bind
+        (second minute hour day month year day-of-week dst-p tz)
+      (get-decoded-time)
+    (format nil "~a, ~2,'0d ~a ~d ~2,'0d:~2,'0d:~2,'0d +~4,'0d"
+            (nth day-of-week *day-names-short*)
+            day
+            (nth (- month 1) *month-names-short*)
+            year
+            hour
+            minute
+            second
+            (- tz))))
 
 ;; Both modified from https://lispcookbook.github.io/cl-cookbook/strings.html
 (defun string-split-by-delim (string delim)
