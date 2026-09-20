@@ -97,14 +97,14 @@
   (setf (page-elements page) (cons element (page-elements page))))
 
 (defun find-additonal-data (page data-name)
-  (loop for data in (page-additional-data page)
-        do (if (equal (nth 0 data) data-name)
-               (return-from find-additonal-data data)))
-  nil)
+  (let ((wanted nil))
+    (loop for data in (page-additional-data page)
+          do (if (equal (nth 0 data) data-name)
+                 (setq wanted data)))
+    wanted))
 
 (defmacro add-additonal-data (data-name data-content)
-  `(progn (setf (page-additional-data page-var)
-                (cons (cons ,data-name ,data-content) (page-additional-data page-var)))))
+  `(progn (push (cons ,data-name ,data-content) (page-additional-data page-var))))
 
 ;;;;;;;;;;;;;;
 ;; Elements ;;
