@@ -52,13 +52,14 @@
         do (when file (copy-file (car file) (string-concat export-path (cdr file))))))
 
 (defun site-find-additonal-data (site data-name)
-  (loop for data in (site-additional-data site)
-        do (if (equal (nth 0 data) data-name)
-               (return-from site-find-additonal-data data)))
-  nil)
+  (let ((wanted nil))
+    (loop for data in (site-additional-data site)
+          do (if (equal (nth 0 data) data-name)
+                 (setq wanted data)))
+  wanted))
 
 (defun site-add-additonal-data (site data-name data-content)
-  (setf (site-additional-data site) (cons (cons data-name data-content) (site-additional-data site))))
+  (push (cons data-name data-content) (site-additional-data site)))
 
 ;;;;;;;;;;
 ;; Page ;;
