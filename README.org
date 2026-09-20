@@ -1,4 +1,5 @@
 #+TITLE: WebEX
+#+OPTIONS: toc:nil
 
 WebEX is a system that let's you define page elements and exports them to user-defined formats, such as HTML and Markdown.
 
@@ -20,6 +21,7 @@ WebEX is a system that let's you define page elements and exports them to user-d
   (export-to-html example)
 #+END_SRC
 
+#+ATTR_HTML: :width 50% :height 50%
 [[./screenshot-1.png]]
 
 * Current language support
