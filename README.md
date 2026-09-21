@@ -1,9 +1,10 @@
-#+TITLE: WebEX
-#+OPTIONS: toc:nil
+# WebEX
 
 WebEX is a system that let's you define page elements and exports them to user-defined formats, such as HTML and Markdown.
 
-#+BEGIN_SRC lisp
+Mainly used for [my personal website](https://svngms.neocities.org/)
+
+```lisp
   (create-site 'example "Example Site")
 
   (create-page example "Index" "/index"
@@ -19,18 +20,22 @@ WebEX is a system that let's you define page elements and exports them to user-d
                (add-link "Hey Click Me!" "/other-page/"))
 
   (export-to-html example)
-#+END_SRC
+```
 
-#+ATTR_HTML: :width 50% :height 50%
-[[./screenshot-1.png]]
+<img src="./screenshot-1.png" alt="Screenshot" width="500px"/>
 
-* Current language support
+## Current language support
 
- * HTML
- * RSS (exports only to one file)
+ - HTML
+ - RSS (exports only to one file)
 
 More will be added in future as I need them
 
-* License
+## Inspired by
 
-The license is [[https://unlicense.org/][Unlicense]].
+ - [kew](https://github.com/uint23/kew)
+ - [werc](https://werc.cat-v.org/)
+
+## License
+
+The license is [Unlicense](https://unlicense.org/).
