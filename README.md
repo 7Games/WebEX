@@ -1,5 +1,9 @@
 # WebEX
 
+![Common Lisp](https://badges.ws/badge/?logo=commonlisp&value=Common%20Lisp)
+![Unlicense](https://badges.ws/badge/License-Unlicense-444)
+![Handmade](https://badges.ws/handmade)
+
 WebEX is a system that let's you define page elements and exports them to user-defined formats, such as HTML and Markdown.
 
 Mainly used for [my personal website](https://svngms.neocities.org/)
