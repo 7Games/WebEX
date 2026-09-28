@@ -56,7 +56,7 @@
     (loop for data in (site-additional-data site)
           do (if (equal (nth 0 data) data-name)
                  (setq wanted data)))
-  wanted))
+    wanted))
 
 (defun site-add-additonal-data (site data-name data-content)
   (push (cons data-name data-content) (site-additional-data site)))
@@ -112,19 +112,19 @@
 ;;;;;;;;;;;;;;
 
 (deftype element-type () '(member :heading
-                                  :subheading
-                                  :text
-                                  :link
-                                  :paragraph
-                                  :codeblock
-                                  :inline-codeblock
-                                  :mixer
-                                  :image
-                                  :newline
-                                  :separator))
+                           :subheading
+                           :text
+                           :link
+                           :paragraph
+                           :codeblock
+                           :inline-codeblock
+                           :mixer
+                           :image
+                           :newline
+                           :separator))
 
 (deftype list-type () '(member :unordered
-                               :ordered))
+                        :ordered))
 
 (defclass element ()
   ((type

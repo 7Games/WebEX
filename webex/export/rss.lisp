@@ -67,8 +67,8 @@
 (defmethod --element-to-rss ((type (eql :list)) element)
   (let ((index 1)
         (str (make-array 0 :element-type 'character
-                           :adjustable t
-                           :fill-pointer t)))
+                         :adjustable t
+                         :fill-pointer t)))
     (loop for e in (car (element-list-elements element))
           do (progn
                (format str "<p> ~A ~A</p>~%" (if (eq (element-list-type element) :unordered) "-" (format nil "~d." index))
