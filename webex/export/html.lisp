@@ -104,8 +104,9 @@
                           :if-does-not-exist :create)
     (let ((page-var page)) (add-additonal-data 'export-date (get-timestamp)))
     (format stream "<!DOCTYPE html>~%<html lang=\"en\">~%    <head>~%        <meta charset=\"UTF-8\">~%        <title>~A</title>~%" (page-name page))
-    (if (find-additonal-data page 'css-path)
-        (format stream "        <link rel=\"stylesheet\" href=\"~A\">~%" (cdr (find-additonal-data page 'css-path))))
+    (when (find-additonal-data page 'css-path)
+      (format stream "        <link rel=\"preload\" as=\"style\" href=\"~A\">~%" (cdr (find-additonal-data page 'css-path)))
+      (format stream "        <link rel=\"stylesheet\" href=\"~A\">~%" (cdr (find-additonal-data page 'css-path))))
     (format stream "    </head>~%    <body>~%")
     ;; Header ;;;;;;;;;;;;;;;;;;;;;;;;;;
     (when (site-find-additonal-data site 'html-header)
