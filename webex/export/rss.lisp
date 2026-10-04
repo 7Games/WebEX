@@ -122,7 +122,7 @@
                (format stream "<title>~A</title>~%" (page-name page))
                (format stream "<pubDate>~A</pubDate>~%" (cdr (find-additonal-data page "blog-created")))
                ;; <guid>
-               (format stream "<url>~A#~A</url>~%" rss-url (rss--fixup-string (string-concat (page-name page) " (" (cdr (find-additonal-data page "blog-created")) ")")))
+               (format stream "<url>~A/~A-~A</url>~%" rss-url (cdr (find-additonal-data page "blog-created")) (html--fixup-string (page-name page)))
                (format stream "<description>~%")
                (loop for e in (page-elements page)
                      do (format stream "~A~%" (element-to-rss e)))

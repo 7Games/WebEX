@@ -107,6 +107,8 @@
     (when (find-additonal-data page 'css-path)
       (format stream "        <link rel=\"preload\" as=\"style\" href=\"~A\">~%" (cdr (find-additonal-data page 'css-path)))
       (format stream "        <link rel=\"stylesheet\" href=\"~A\">~%" (cdr (find-additonal-data page 'css-path))))
+    (when (find-additonal-data page 'js-path)
+      (format stream "         <script src=\"~A\"></script> ~%" (cdr (find-additonal-data page 'js-path))))
     (format stream "    </head>~%    <body>~%")
     ;; Header ;;;;;;;;;;;;;;;;;;;;;;;;;;
     (when (site-find-additonal-data site 'html-header)
@@ -145,6 +147,9 @@
 
 (defmacro html-add-styling (css-path)
   `(progn (add-additonal-data 'css-path ,css-path)))
+
+(defmacro html-add-external-script (js-path)
+  `(progn (add-additonal-data 'js-path ,js-path)))
 
 (defmacro html-add-footer (site &body body)
   `(let ((page-var (make-instance 'page :name "don't matter"
